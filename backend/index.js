@@ -5,7 +5,7 @@ const app = express()
 app.use(express.json())
 app.use(express.static('dist'))
 morgan.token("pad-method", (req, res) => req.method.padEnd(6))
-morgan.token("pad-url", (req, res) => req.url.padEnd(16))
+morgan.token("pad-url", (req, res) => req.url.padEnd(32))
 morgan.token("json-body", (req, res) => JSON.stringify(req.body))
 app.use(morgan(":pad-method :pad-url :status | :res[content-length] bytes | :response-time ms | :json-body"))
 
